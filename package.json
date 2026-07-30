@@ -1,0 +1,33 @@
+{
+  "name": "nsite-pr-preview",
+  "version": "0.1.0",
+  "description": "Publish a pull request's build as an nsite and post the link on the PR",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashen0x/nsite-pr-preview.git"
+  },
+  "bin": {
+    "nsite-pr-preview": "scripts/preview.mjs"
+  },
+  "files": [
+    "scripts/preview.mjs"
+  ],
+  "engines": {
+    "node": ">=20.1.0"
+  },
+  "license": "MIT",
+  "author": "Ashen",
+  "keywords": [
+    "nostr",
+    "nsite",
+    "nsyte",
+    "ngit",
+    "nip34",
+    "pull-request",
+    "preview",
+    "deploy"
+  ],
+  "scripts": {
+    "build": "node build.mjs"
+  }
+}
