@@ -154,7 +154,9 @@ if (live) {
   say(`fetching ${pr.branch}`);
   try { exec("git", ["fetch", remote]); } catch (e) { die(`git fetch failed, so the tree cannot be checked against the PR:\n${e.message}`); }
 }
-const pushed = refs.map((r) => git("rev-parse", "--verify", "--quiet", r)).find(Boolean) ?? "";
+// Both spellings can exist at once and disagree: a force-pushed revision leaves the suffixed copy behind.
+const published = refs.map((r) => git("rev-parse", "--verify", "--quiet", r)).filter(Boolean);
+const pushed = published.includes(head) ? head : published[0] ?? "";
 // A git failure must not read as a clean tree.
 let status = "";
 try { status = exec("git", ["status", "--porcelain"]); }
